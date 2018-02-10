@@ -1,0 +1,18 @@
+{
+  "name": "3h-log",
+  "version": "1.0.0",
+  "description": "A lib that helps you log things to the console with various prefix easily.",
+  "main": "3h-log.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "log",
+    "console",
+    "3h",
+    "3h-log",
+    "prefix"
+  ],
+  "author": "3h",
+  "license": "MIT"
+}
