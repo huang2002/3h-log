@@ -14,7 +14,7 @@ $ npm install 3h-log
 const Logger = require('3h-log');
 
 Logger.default.info('This is a piece of information logged by the default logger.');
-// prints: [INFO] This is an information logged by the default logger.
+// prints: [INFO] This is a piece of information logged by the default logger.
 
 const logger = new Logger();
 
