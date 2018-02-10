@@ -1,7 +1,11 @@
 {
   "name": "3h-log",
   "version": "1.0.0",
-  "description": "A lib that helps you log things to the console with various prefix easily.",
+  "description": "A lib that helps you log things with various prefix easily.",
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/huang2002/3h-log"
+  },
   "main": "3h-log.js",
   "scripts": {
     "test": "node test/test.js"
