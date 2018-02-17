@@ -19,7 +19,7 @@ const logger = new Logger();
 
 logger.warn('A warning with default prefix.');
 
-logger.prefix.warn = '[MyWarn]';
+logger.prefix.warn = 'MyWarn';
 logger.warn('A warning with my prefix.');
 
 logger.showTime = false;

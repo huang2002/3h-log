@@ -6,7 +6,7 @@ logger.showTime = false;
 logger.warn('warn without time');
 logger.showTime = true;
 
-logger.prefixes.error = '(MyErr)';
+logger.prefixes.error = 'MyErr';
 logger.error('error with my prefix');
 
 const d = 2;

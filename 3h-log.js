@@ -22,16 +22,16 @@ class Logger {
          * @type {{[x: string]: string}}
          */
         this.prefixes = {
-            info: '(INFO)',
-            warn: '(WARN)',
-            error: '(ERROR)',
-            trace: '(TRACE)'
+            info: 'INFO',
+            warn: 'WARN',
+            error: 'ERROR',
+            trace: 'TRACE'
         };
         /**
          * @description The target length of prefixes.
          * @type {number}
          */
-        this.preLen = 8;
+        this.preLen = 6;
         /**
          * @description Whether to show the current time.
          * @type {boolean}
@@ -45,7 +45,7 @@ class Logger {
      * @returns {Logger} Return this.
      */
     write(prefix, msg) {
-        prefix = prefix.padEnd(this.preLen);
+        prefix = '(' + prefix.padEnd(this.preLen) + ')';
         if (this.showTime) {
             prefix = '[' + (new Date()).toLocaleString() + '] ' + prefix;
         }
