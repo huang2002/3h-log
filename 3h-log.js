@@ -88,8 +88,10 @@ class Logger {
         this.write(this.prefixes.trace, msg);
         return this;
     }
+    /**
+     * @description Default logger.
+     */
+    static default = new Logger();
 }
-
-Logger.default = new Logger();
 
 module.exports = Logger;
