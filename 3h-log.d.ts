@@ -2,7 +2,7 @@ import stream from 'stream';
 
 type WritableStream = stream.Writable;
 
-declare class Logger {
+export default class Logger {
     constructor(out?: WritableStream);
     static default: Logger;
     out: WritableStream;
