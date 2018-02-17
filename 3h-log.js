@@ -45,7 +45,7 @@ class Logger {
      * @returns {Logger} Return this.
      */
     write(prefix, msg) {
-        prefix = '(' + prefix.padEnd(this.preLen) + ')';
+        prefix = ('(' + prefix + ')').padEnd(this.preLen + 2);
         if (this.showTime) {
             prefix = '[' + (new Date()).toLocaleString() + '] ' + prefix;
         }
@@ -88,10 +88,6 @@ class Logger {
         this.write(this.prefixes.trace, msg);
         return this;
     }
-    /**
-     * @description Default logger.
-     */
-    static default = new Logger();
 }
 
 module.exports = Logger;

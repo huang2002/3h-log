@@ -1,4 +1,4 @@
-const logger = require('../3h-log').default;
+const logger = new (require('../3h-log'));
 
 logger.info('info');
 

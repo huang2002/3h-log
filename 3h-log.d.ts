@@ -1,10 +1,9 @@
-import stream from 'stream';
+import stream = require('stream');
 
 type WritableStream = stream.Writable;
 
 export default class Logger {
     constructor(out?: WritableStream);
-    static default: Logger;
     out: WritableStream;
     prefix: { [prefix: string]: string };
     preLen: number;

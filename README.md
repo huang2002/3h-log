@@ -13,8 +13,6 @@ $ npm install 3h-log
 ```javascript
 const Logger = require('3h-log');
 
-Logger.default.info('A piece of information logged by the default logger.');
-
 const logger = new Logger();
 
 logger.warn('A warning with default prefix.');
@@ -32,7 +30,6 @@ logger.info('A piece of information with 2 more spaces.');
 ## API
 
 - Logger(out?: stream.Writable) - *The constructor of loggers.*
-    - default - *An instance of `Logger`.*
 - logger - ( Any instance of `Logger`. )
     - preLen: number - *Target length of prefixes.*
     - showTime: boolean - *Whether to show the current time.*
