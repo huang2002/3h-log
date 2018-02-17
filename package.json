@@ -1,6 +1,6 @@
 {
   "name": "3h-log",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A lib that helps you log things with various prefix easily.",
   "repository": {
     "type": "GitHub",

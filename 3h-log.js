@@ -19,14 +19,38 @@ class Logger {
         this.out = out;
         /**
          * @description The prefixes.
-         * @type {[x: string]: string}
+         * @type {{[x: string]: string}}
          */
         this.prefixes = {
-            info: '[INFO]',
-            warn: '[WARN]',
-            error: '[ERROR]',
-            trace: '[TRACE]'
+            info: '(INFO)',
+            warn: '(WARN)',
+            error: '(ERROR)',
+            trace: '(TRACE)'
         };
+        /**
+         * @description The target length of prefixes.
+         * @type {number}
+         */
+        this.preLen = 8;
+        /**
+         * @description Whether to show the current time.
+         * @type {boolean}
+         */
+        this.showTime = true;
+    }
+    /**
+     * @description To print something.
+     * @param {string} prefix The prefix.
+     * @param {string} msg The message.
+     * @returns {Logger} Return this.
+     */
+    write(prefix, msg) {
+        prefix = prefix.padEnd(this.preLen);
+        if (this.showTime) {
+            prefix = '[' + (new Date()).toLocaleString() + '] ' + prefix;
+        }
+        this.out.write(prefix + ' ' + msg + '\n');
+        return this;
     }
     /**
      * @description To log some infomation.
@@ -34,7 +58,7 @@ class Logger {
      * @returns {Logger} Return this.
      */
     info(msg) {
-        this.out.write(this.prefixes.info + ' ' + msg + '\n');
+        this.write(this.prefixes.info, msg);
         return this;
     }
     /**
@@ -43,7 +67,7 @@ class Logger {
      * @returns {Logger} Return this.
      */
     warn(msg) {
-        this.out.write(this.prefixes.warn + ' ' + msg + '\n');
+        this.write(this.prefixes.warn, msg);
         return this;
     }
     /**
@@ -52,7 +76,7 @@ class Logger {
      * @returns {Logger} Return this.
      */
     error(msg) {
-        this.out.write(this.prefixes.error + ' ' + msg + '\n');
+        this.write(this.prefixes.error, msg);
         return this;
     }
     /**
@@ -61,7 +85,7 @@ class Logger {
      * @returns {Logger} Return this.
      */
     trace(msg) {
-        this.out.write(this.prefixes.trace + ' ' + msg + '\n');
+        this.write(this.prefixes.trace, msg);
         return this;
     }
 }

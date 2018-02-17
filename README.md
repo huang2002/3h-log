@@ -13,18 +13,20 @@ $ npm install 3h-log
 ```javascript
 const Logger = require('3h-log');
 
-Logger.default.info('This is a piece of information logged by the default logger.');
-// prints: [INFO] This is a piece of information logged by the default logger.
+Logger.default.info('A piece of information logged by the default logger.');
 
 const logger = new Logger();
 
-logger.warn('This is a warning with default prefix.');
-// prints: [WARN] This is a warning with default prefix.
+logger.warn('A warning with default prefix.');
 
-logger.prefix.warn = '[Wanring]';
-logger.warn('This is a warning with my prefix.');
-// prints: [Wanring] This is a warning with my prefix.
+logger.prefix.warn = '[MyWarn]';
+logger.warn('A warning with my prefix.');
 
+logger.showTime = false;
+logger.error('An error without time.');
+
+logger.preLen += 2;
+logger.info('A piece of information with 2 more spaces.');
 ```
 
 ## API
@@ -32,11 +34,14 @@ logger.warn('This is a warning with my prefix.');
 - Logger(out?: stream.Writable) - *The constructor of loggers.*
     - default - *An instance of `Logger`.*
 - logger - ( Any instance of `Logger`. )
+    - preLen: number - *Target length of prefixes.*
+    - showTime: boolean - *Whether to show the current time.*
     - prefix - *The prefixes.*
-        - info - *The prefix for `logger.info`.*
-        - error - *The prefix for `logger.error`.*
-        - warn - *The prefix for `logger.warn`.*
-        - trace - *The prefix for `logger.trace`.*
+        - info: string - *The prefix for `logger.info`.*
+        - error: string - *The prefix for `logger.error`.*
+        - warn: string - *The prefix for `logger.warn`.*
+        - trace: string - *The prefix for `logger.trace`.*
+    - write(prefix: string, msg: string) - *To write something.*
     - info(msg: string) - *To log some information.*
     - error(msg: string) - *To log some errors.*
     - warn(msg: string) - *To log some warnings.*
