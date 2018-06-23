@@ -1,17 +1,12 @@
-const logger = new (require('../3h-log'));
+const Logger = require('../dist/index'),
+    logger = new Logger({ timeFormat: '[YYYY-MM-DD HH:MM:SS.sss]' });
 
-logger.info('info');
+logger.print('custom', 'Custom messages.');
 
-logger.showTime = false;
-logger.warn('warn without time');
-logger.showTime = true;
+logger.setLevel('log');
 
-logger.prefixes.error = 'MyErr';
-logger.error('error with my prefix');
-
-const d = 2;
-logger.preLen += d;
-logger.trace('trace with ' + d + ' more spaces');
-logger.preLen -= d;
-
-logger.write('ABC', 'custom');
+logger.error('Some errors.');
+logger.warn('Some warnings.');
+logger.info('Some information.');
+logger.log('Some logs.');
+logger.debug('This should not be seen!');

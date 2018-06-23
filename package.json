@@ -1,26 +1,32 @@
 {
-  "name": "3h-log",
-  "version": "2.0.3",
-  "description": "A lib that helps you log things with various prefix easily.",
-  "repository": {
-    "type": "GitHub",
-    "url": "https://github.com/huang2002/3h-log"
-  },
-  "main": "3h-log.js",
-  "scripts": {
-    "test": "node test/test.js"
-  },
-  "types": "3h-log.d.ts",
-  "keywords": [
-    "log",
-    "console",
-    "3h",
-    "3h-log",
-    "prefix"
-  ],
-  "author": "3h",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^9.4.6"
-  }
+    "name": "3h-log",
+    "version": "3.0.0",
+    "description": "A logger lib.",
+    "repository": {
+        "type": "GitHub",
+        "url": "https://github.com/huang2002/3h-log"
+    },
+    "main": "./dist/index.js",
+    "scripts": {
+        "test": "node test/test.js",
+        "build": "tsc"
+    },
+    "types": "3h-log.d.ts",
+    "keywords": [
+        "log",
+        "level",
+        "prefix",
+        "error",
+        "warn",
+        "info",
+        "debug",
+        "console",
+        "3h"
+    ],
+    "author": "3h",
+    "license": "MIT",
+    "devDependencies": {},
+    "dependencies": {
+        "3h-time": "^0.1.5"
+    }
 }
