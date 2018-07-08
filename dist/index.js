@@ -1,12 +1,12 @@
 "use strict";
 const Time = require("3h-time");
-const defaultLevels = [
-    'error',
-    'warn',
-    'info',
-    'log',
-    'debug'
-];
+const defaultLevels = new Map([
+    ['error', 0],
+    ['warn', 1],
+    ['info', 2],
+    ['log', 3],
+    ['debug', 4]
+]);
 class Logger {
     constructor(options = {}) {
         this.logTime = true;
@@ -14,6 +14,7 @@ class Logger {
         this.upperCasePrefix = true;
         this.prefixLength = 6;
         this.levels = defaultLevels;
+        this.defaultLevel = 0;
         this.output = console.log;
         Object.assign(this, options);
         this.enableAll();
@@ -21,19 +22,23 @@ class Logger {
     fixAlign(prefix) {
         return prefix.padStart(this.prefixLength);
     }
+    getLevel(prefix) {
+        const { levels } = this;
+        return levels.has(prefix) ? levels.get(prefix) : this.defaultLevel;
+    }
     setLevel(prefix) {
-        const level = this.levels.indexOf(prefix);
+        const level = this.getLevel(prefix);
         if (level !== -1) {
             this.level = level;
         }
         return this;
     }
     enableAll() {
-        this.level = this.levels.length - 1;
+        this.level = Infinity;
         return this;
     }
     disableAll() {
-        this.level = -1;
+        this.level = -Infinity;
         return this;
     }
     format(prefix, message) {
@@ -47,9 +52,11 @@ class Logger {
         ans += this.fixAlign(prefix) + ': ';
         return ans + message;
     }
+    isEnabled(prefix) {
+        return this.getLevel(prefix) <= this.level;
+    }
     print(prefix, message) {
-        const { level, levels } = this;
-        if (levels.indexOf(prefix) <= level) {
+        if (this.isEnabled(prefix)) {
             this.output(this.format(prefix, message));
             return true;
         }

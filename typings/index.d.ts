@@ -5,25 +5,28 @@ interface LoggerOptions {
     upperCasePrefix?: boolean;
     prefixLength?: number;
     fixAlign?: (prefix: string) => string;
-    levels?: string[];
     level?: number;
+    defaultLevel?: number;
     output?: LoggerOutputMethod;
 }
-declare class Logger implements LoggerOptions {
+declare class Logger implements Required<LoggerOptions> {
     constructor(options?: LoggerOptions);
-    static readonly defaultLevels: string[];
+    static readonly defaultLevels: Map<string, number>;
     logTime: boolean;
     timeFormat: string;
     upperCasePrefix: boolean;
     prefixLength: number;
     fixAlign(prefix: string): string;
-    levels: string[];
+    levels: Map<string, number>;
     level: number;
+    defaultLevel: number;
     output: LoggerOutputMethod;
+    getLevel(prefix: string): number;
     setLevel(prefix: string): this;
     enableAll(): this;
     disableAll(): this;
     format(prefix: string, message: string): string;
+    isEnabled(prefix: string): boolean;
     print(prefix: string, message: string): boolean;
     error(message: string): boolean;
     warn(message: string): boolean;
