@@ -31,7 +31,7 @@ class Logger implements Required<LoggerOptions> {
     static readonly defaultLevels = defaultLevels;
 
     logTime = true;
-    timeFormat = '[HH:MM:SS]';
+    timeFormat = '[HH:mm:SS]';
 
     upperCasePrefix = true;
     prefixLength = 6;

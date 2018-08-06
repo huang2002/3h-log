@@ -1,5 +1,5 @@
 const Logger = require('../dist/index'),
-    logger = new Logger({ timeFormat: '[YYYY-MM-DD HH:MM:SS.sss]' });
+    logger = new Logger({ timeFormat: '[YYYY-MM-DD HH:mm:SS.sss]' });
 
 logger.print('custom', 'Custom messages.');
 

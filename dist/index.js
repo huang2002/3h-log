@@ -10,7 +10,7 @@ const defaultLevels = new Map([
 class Logger {
     constructor(options = {}) {
         this.logTime = true;
-        this.timeFormat = '[HH:MM:SS]';
+        this.timeFormat = '[HH:mm:SS]';
         this.upperCasePrefix = true;
         this.prefixLength = 6;
         this.levels = defaultLevels;

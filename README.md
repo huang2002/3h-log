@@ -13,7 +13,7 @@ A logger lib.
 ```javascript
 
 const Logger = require('3h-log'),
-    logger = new Logger({ timeFormat: '[YYYY-MM-DD HH:MM:SS.sss]' });
+    logger = new Logger({ timeFormat: '[YYYY-MM-DD HH:mm:SS.sss]' });
 
 logger.print('custom', 'Custom messages.');
 
