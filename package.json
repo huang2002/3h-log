@@ -30,6 +30,6 @@
         "typescript": "^3.0.1"
     },
     "dependencies": {
-        "3h-time": "^0.1.5"
+        "3h-time": "^1.2.1"
     }
 }
